@@ -1,0 +1,158 @@
+{
+  "name": "togglepatron",
+  "permissions": "NONE",
+  "restriction": "2",
+  "_id": "HVOFl",
+  "actions": [
+    {
+      "member": "1",
+      "varName": "",
+      "info": "6",
+      "varName2": "",
+      "iftrue": "3",
+      "iftrueVal": "2",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check If Member"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "You cannot use this command.",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "info": "0",
+      "infoIndex": "1",
+      "storage": "1",
+      "varName": "guid",
+      "name": "Store Command Params"
+    },
+    {
+      "storage": "1",
+      "varName": "guid",
+      "comparison": "9",
+      "value": "18",
+      "iftrue": "3",
+      "iftrueVal": "2",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "That's not a valid Guild ID.",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "info": "0",
+      "find": "${tempVars(\"guid\")}",
+      "storage": "1",
+      "varName": "ifmember",
+      "find2": "0",
+      "iffalse": "3",
+      "iffalseVal": "4",
+      "name": "Find Member"
+    },
+    {
+      "storage": "1",
+      "varName": "ifmember",
+      "comparison": "3",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check Variable Type"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "You cannot make a member premium, use a Guild ID.",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "guid",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "guildid",
+      "name": "Store Server Data"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "guid",
+      "comparison": "1",
+      "value": "tempVars(\"guid\")",
+      "iftrue": "0",
+      "iftrueVal": "3",
+      "iffalse": "3",
+      "iffalseVal": "3",
+      "name": "Check Server Data"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "guid",
+      "name": "Delete Server Data MOD"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Removed `${tempVars(\"guid\")}` from premium guilds.",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "guid",
+      "changeType": "0",
+      "value": "tempVars(\"guid\")",
+      "name": "Control Server Data"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Added `${tempVars(\"guid\")}` to premium guilds.",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    }
+  ],
+  "_aliases": [
+    "tpg",
+    "tp"
+  ]
+}
